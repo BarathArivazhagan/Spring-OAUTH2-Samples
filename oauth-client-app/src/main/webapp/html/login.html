@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+<script type="text/javascript" src="./lib/jquery-1.12.4.js"> </script>
+<script type="text/javascript" src="./lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"> </script>
+<link rel="stylesheet" type="text/css" href="./lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/login.css">
+
+</head>
+<style>
+
+
+</style>
+<body>
+ <div class="wrapper">
+    <form class="form-signin" action="/server/login" method="post" enctype="application/x-www-form-urlencoded">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="emailId" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form>
+  </div>
+
+</body>
+</html>

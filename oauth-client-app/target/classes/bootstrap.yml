@@ -1,0 +1,12 @@
+
+
+  
+spring:
+  profiles:
+    active: native
+  application:
+    name: oauth-client-app
+  cloud:
+    config:
+      uri: http://localhost:8888
+
