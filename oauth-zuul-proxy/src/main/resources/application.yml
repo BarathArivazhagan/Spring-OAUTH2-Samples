@@ -1,0 +1,44 @@
+
+
+server:
+  port: 8083
+
+  
+spring:
+  application:
+    name: oauth-zuul-proxy
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: a
+    password: a
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8082/server/oauth/token
+      user-authorization-uri: http://localhost:8082/server/oauth/authorize    
+      client-id: clientapp
+      client-secret: clientsecret
+    resource:
+      user-info-uri: http://localhost:8082/server/user
+
+eureka:
+  client:
+    serviceUrl:
+        #defaultZone: ${eureka.server.url}
+        defaultZone: http://localhost:8080/eureka
+    fetch-registry: true
+    register-with-eureka: true
+      
+
+      
+zuul:
+  routes:
+    OAUTH-CLIENT:
+      path: /client/*
+      id: oauth-client-app
+    OAUth-SERVER:
+      path: /server/*
+      id: oauth-server
+      
