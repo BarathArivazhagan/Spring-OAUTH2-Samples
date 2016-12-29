@@ -1,0 +1,18 @@
+
+
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: oauth-eureka-server
+    
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    
+  

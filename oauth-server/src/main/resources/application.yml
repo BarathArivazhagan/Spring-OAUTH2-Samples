@@ -1,0 +1,21 @@
+
+server:
+  port: 8082
+  context-path: /server
+
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: a
+    password: a
+    
+  
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: ${eureka.server.url}
+      defaultZone: http://localhost:8080/eureka
+    fetch-registry: true
+    register-with-eureka: true
