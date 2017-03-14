@@ -20,6 +20,33 @@ public class OauthServerApplication {
 	}
 	
 	@Configuration
+	@Order(-20)
+	protected static class LoginConfig extends WebSecurityConfigurerAdapter {
+
+		@Autowired
+		private AuthenticationManager authenticationManager;
+
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			
+			http
+				.formLogin().loginPage("/login").permitAll()
+			.and()
+				.requestMatchers().antMatchers("/login", 
+							       "/oauth/authorize", 
+							       "/oauth/confirm_access","/oauth/token")
+			.and()
+				.authorizeRequests().anyRequest().authenticated();
+			
+		}
+
+		@Override
+		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+			auth.parentAuthenticationManager(authenticationManager);
+		}
+	}
+	
+	@Configuration
 	@EnableAuthorizationServer
 	protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
